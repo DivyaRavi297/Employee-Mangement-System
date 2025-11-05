@@ -1,4 +1,6 @@
 import express from 'express';
+import db from './src/config/db.js'
+
 
 const app = express();
 
