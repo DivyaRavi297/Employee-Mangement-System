@@ -1,0 +1,42 @@
+import {
+  getAllEmployees,
+  getEmployeeById,
+  addEmployee,
+  updateEmployee,
+  deleteEmployee,
+} from "../models/employeeModel.js";
+
+export const getEmployees = (req, res) => {
+  getAllEmployees((err, results) => {
+    if (err) res.status(500).json({ error: err });
+    else res.json(results);
+  });
+};
+
+export const getEmployee = (req, res) => {
+  getEmployeeById(req.params.id, (err, results) => {
+    if (err) res.status(500).json({ error: err });
+    else res.json(results[0]);
+  });
+};
+
+export const createEmployee = (req, res) => {
+  addEmployee(req.body, (err, results) => {
+    if (err) res.status(500).json({ error: err });
+    else res.json({ message: "Employee added successfully!" });
+  });
+};
+
+export const editEmployee = (req, res) => {
+  updateEmployee(req.params.id, req.body, (err, results) => {
+    if (err) res.status(500).json({ error: err });
+    else res.json({ message: "Employee updated successfully!" });
+  });
+};
+
+export const removeEmployee = (req, res) => {
+  deleteEmployee(req.params.id, (err, results) => {
+    if (err) res.status(500).json({ error: err });
+    else res.json({ message: "Employee deleted successfully!" });
+  });
+};
