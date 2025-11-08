@@ -1,9 +1,11 @@
 import express from 'express';
-import db from './src/config/db.js'
+import employeeRoutes from "./src/routes/employeeRoutes.js"
 
 
 const app = express();
+app.use(express.json());
 
+app.use("/api/employees",employeeRoutes)
 app.listen(8080,()=>{
     console.log("server started....")
 })
