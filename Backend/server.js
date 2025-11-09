@@ -7,5 +7,5 @@ app.use(express.json());
 
 app.use("/api/employees",employeeRoutes)
 app.listen(8080,()=>{
-    console.log("server started....")
+    console.log("server is running....")
 })
